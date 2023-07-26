@@ -1,5 +1,8 @@
+$primary-color: rgb(255,0,0);
+
 .App {
   text-align: center;
+  background-color: rgb(255,0,0);
 }
 
 .App-logo {
@@ -10,6 +13,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+     background-color: $primary-color;
   }
 }
 
