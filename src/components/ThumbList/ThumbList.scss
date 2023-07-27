@@ -1,0 +1,14 @@
+
+@import "../../styles/_variables.scss";
+
+.section {
+    margin-top: 43px;
+    border-radius: 25px;
+    padding: 56px 50px 0px 50px;
+    background-color: $secondary-color;
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%;
+    }
+}
