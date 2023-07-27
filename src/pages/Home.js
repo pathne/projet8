@@ -8,6 +8,7 @@ import ThumbList from '../components/ThumbList/ThumbList'
 import Footer from '../components/Footer/Footer'
 
 export default function Home() {
+
     return (
         <div>
             <Container>

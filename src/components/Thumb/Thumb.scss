@@ -13,9 +13,18 @@
         height: 100%;
         position: relative;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%);
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            object-fit: cover;
+        }
         h3 {
             position: absolute;
             left: 20px;
+            right: 20px;
             bottom: 20px;
             font-size: 18px;
             color: #FFF;
