@@ -22,9 +22,6 @@ export default function Presentation(props){
         stars.push(<div className="star-empty"></div>)
     }
 
-    let descriptions = props.description.split('.').map(s => s+'.')
-    descriptions.pop()
-
     return (
         <section className="presentation">
             <div className="info">
@@ -45,7 +42,7 @@ export default function Presentation(props){
                 <div className="detail-slot">
                     <Detail
                         title="Description"
-                        items={descriptions}
+                        items={props.description}
                     />
                 </div>
                 <div className="detail-slot">

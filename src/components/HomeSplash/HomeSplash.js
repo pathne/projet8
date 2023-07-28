@@ -2,7 +2,7 @@
 import './HomeSplash.scss';
 import homeSplashImage from '../../assets/images/home-splash.png';
 
-export default function HomeSplash(){
+export default function HomeSplash(props){
     return (
         <div className="home-splash">
             <img src={homeSplashImage} alt="splash"/>

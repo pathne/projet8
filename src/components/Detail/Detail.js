@@ -1,41 +1,3 @@
-/*
-import './Detail.scss';
-import { useState } from 'react';
-
-export default function Detail(props){
-
-    const [collapsed, setCollapsed] = useState(true)
-
-    const toggleCollapse = (e)=>{
-        setCollapsed(!collapsed)
-    }
-
-    const arrowClass = 'arrow-up' + (collapsed?'':' arrow-rotated')
-    const detailClass = 'detail-content' +  (collapsed?' detail-content-collapsed':'')
-
-    return (
-        <div className="detail">
-            <div className="detail-title" onClick={toggleCollapse}>
-                <h3>{props.title}</h3>
-                <div className={arrowClass}></div>
-            </div>
-            <div className="detail-content" ref={el => {
-                console.log(el)
-                if (el){
-                    el.style.maxHeight = '30px'
-                }
-            }}>
-                <ul ref={el => {
-                    console.log(el.getBoundingClientRect().height)
-                }}>
-                <li>fhghlkfsg</li>
-                <li>fhghlkfsg</li>
-                <li>fhghlkfsg</li>
-                </ul>
-            </div>
-        </div>
-    );
-}*/
 
 import './Detail.scss';
 import { useState } from 'react';
@@ -121,7 +83,15 @@ export default function Detail(props){
         animate.toggle()
     }
 
-    const items = props.items.map(text => <li>{text}</li>)
+    let items
+    if (typeof props.items === 'string'){
+        items = props.items.split('.').map(s => s+'.')
+        items.pop()
+    }
+    else{
+        items = props.items
+    }
+    const itemElements = items.map(text => <li>{text}</li>)
 
     return (
         <div className="detail">
@@ -137,7 +107,7 @@ export default function Detail(props){
                 <ul ref={el => {
                     animate.setHeight(el)
                 }}>
-                    {items}
+                    {itemElements}
                 </ul>
             </div>
         </div>
