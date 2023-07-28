@@ -53,6 +53,8 @@ export default function FicheLogement() {
                     host={renting.host}
                     rating={renting.rating}
                     tags={renting.tags}
+                    description={renting.description}
+                    equipments={renting.equipments}
                 />
             </Container>
             <Footer />

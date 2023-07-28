@@ -59,9 +59,13 @@
             }
         }
     }
-    .foldables {
+    .details {
+        margin-top: 24px;
         display: flex;
         justify-content: space-between;
+        .detail-slot {
+            width: 46.5%;
+        }
     }
 }
 

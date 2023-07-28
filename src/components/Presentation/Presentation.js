@@ -1,7 +1,8 @@
 
 import './Presentation.scss';
+import Detail from '../Detail/Detail';
 
-export default function Carrousel(props){
+export default function Presentation(props){
 
     const nameSplit = props.host.name.split(' ').map(name => (<span>{name}</span>))
     nameSplit.splice(1, 0, (<br />));
@@ -21,6 +22,9 @@ export default function Carrousel(props){
         stars.push(<div className="star-empty"></div>)
     }
 
+    let descriptions = props.description.split('.').map(s => s+'.')
+    descriptions.pop()
+
     return (
         <section className="presentation">
             <div className="info">
@@ -37,9 +41,19 @@ export default function Carrousel(props){
                     <div className="stars">{stars}</div>
                 </div>
             </div>
-            <div className="foldables">
-                <div>descreiption</div>
-                <div>equipement</div>
+            <div className="details">
+                <div className="detail-slot">
+                    <Detail
+                        title="Description"
+                        items={descriptions}
+                    />
+                </div>
+                <div className="detail-slot">
+                    <Detail
+                        title="Équipements"
+                        items={props.equipments}
+                    />
+                </div>
             </div>
         </section>
     );

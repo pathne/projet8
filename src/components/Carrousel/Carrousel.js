@@ -9,11 +9,11 @@ export default function Carrousel(props){
     const pictures = props.pictures
 
     const goLeft = (e) => {
-        setIndex(((index - 1) + pictures.length) % pictures.length);
+        setIndex(((index - 1) + pictures.length) % pictures.length)
     }
 
     const goRight = (e) => {
-        setIndex((index + 1) % pictures.length);
+        setIndex((index + 1) % pictures.length)
     }
 
     return (
