@@ -1,8 +1,9 @@
 
 @import "../../styles/_variables.scss";
 
-.section {
+.thumb-list {
     margin-top: 43px;
+    margin-bottom: 50px;
     border-radius: 25px;
     padding: 56px 50px 0px 50px;
     background-color: $secondary-color;
@@ -10,5 +11,19 @@
         display: flex;
         flex-wrap: wrap;
         gap: 5%;
+    }
+}
+
+@media (max-width: $max-width-mobile) {
+    .thumb-list {
+        margin-top: 22px;
+        margin-bottom: 27px;
+        padding: 0px 0px 0px 0px;
+        background-color: none;
+        div {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            gap: 20px;
+        }
     }
 }

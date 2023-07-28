@@ -1,4 +1,6 @@
 
+@import "../../styles/_variables.scss";
+
 .carrousel {
     position: relative;
     width: 100%;
@@ -43,5 +45,27 @@
         font-size: 18px;
         color: white;
         text-align: center;
+    }
+}
+
+@media (max-width: $max-width-mobile) {
+    .carrousel {
+        height: 255px;
+        border-radius: 10px;
+        .arrow-left {
+            left: 9px;
+            top: calc(50% - 12px);
+            width: 14.14px;
+            height: 24px;
+        }
+        .arrow-right {
+            right: 9px;
+            top: calc(50% - 12px);
+            width: 14.14px;
+            height: 24px;
+        }
+        .index-count {
+            display: none;
+        }
     }
 }

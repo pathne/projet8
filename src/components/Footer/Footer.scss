@@ -1,6 +1,7 @@
 
+@import "../../styles/_variables.scss";
+
 footer {
-    margin-top: 50px;
     height: 209px;
     background-color: black;
     display: flex;
@@ -28,4 +29,18 @@ footer {
 
 .bof {
     transform: scale(0.5);
+}
+
+@media (max-width: $max-width-mobile) {
+    footer {
+        div {
+            padding-top: 15px;
+            h3 {
+                width: 123px;
+                margin-top: 0px;
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+    }
 }

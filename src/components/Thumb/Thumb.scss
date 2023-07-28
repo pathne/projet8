@@ -31,3 +31,11 @@
         }
     }
 }
+
+@media (max-width: $max-width-mobile) {
+    .thumb {
+        margin-bottom: 0px;
+        width: 100%;
+        height: 255px;
+    }
+}

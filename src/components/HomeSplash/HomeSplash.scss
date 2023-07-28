@@ -1,4 +1,6 @@
 
+@import "../../styles/_variables.scss";
+
 .home-splash {
     height: 223px;
     border-radius: 25px;
@@ -29,7 +31,7 @@
     display: none;
 }
 
-@media (max-width: 768.98px) {
+@media (max-width: $max-width-mobile) {
     .home-splash {
         height: 111px;
         div {

@@ -22,7 +22,7 @@ export default function ThumbList(){
     ))
 
     return (
-        <section className="section">
+        <section className="thumb-list">
             <div>
                 {items}
             </div>

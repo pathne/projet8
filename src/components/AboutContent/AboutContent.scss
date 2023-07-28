@@ -1,9 +1,20 @@
 
+@import "../../styles/_variables.scss";
+
 .about-content {
     padding-top: 38px;
+    padding-bottom: 50px;
     max-width: 1024px;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+@media (max-width: $max-width-mobile) {
+    .about-content {
+        padding-top: 19px;
+        padding-bottom: 19px;
+        gap: 20px;
+    }
 }
