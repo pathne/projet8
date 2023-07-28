@@ -15,6 +15,7 @@ export default function ThumbList(){
     const items = rentings.map(item => (
         <Thumb
             key={item.id}
+            uid={item.id}
             title={item.title}
             cover={item.cover}
         />

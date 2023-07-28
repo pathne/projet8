@@ -1,0 +1,78 @@
+
+@import "../../styles/_variables.scss";
+
+.presentation {
+    margin-top: 30px;
+    .info {
+        display: flex;
+        justify-content: space-between;
+        color: $primary-color;
+        .text-tags {
+            h1 {
+                font-size: 36px;
+                line-height: 142.6%;
+            }
+            p {
+                font-size: 18px;
+            }
+            div {
+                margin-top: 10px;
+                display: flex;
+                gap: 10px;
+            }
+        }
+        .who-stars {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 21px;
+            .who {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                p {
+                    font-size: 18px;
+                    line-height: 142.6%;
+                    text-align: right;
+                    font-weight: 500;
+                }
+                img {
+                    border-radius: 50%;
+                }
+            }
+            .stars {
+                display: flex;
+                .star-filled {
+                    width: 36px;
+                    height: 36px;
+                    background: url(../../assets/images/star-filled.svg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+                .star-empty {
+                    width: 36px;
+                    height: 36px;
+                    background: url(../../assets/images/star-empty.svg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+    .foldables {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.tag {
+    min-width: 115px;
+    height: 25px;
+    border-radius: 10px;
+    background: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+}

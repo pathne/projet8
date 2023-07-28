@@ -10,6 +10,12 @@ const data = {
             }
             return this.items || []
         }
+    },
+    renting:{
+        get: async function(id){
+            const items = await data.rentings.get()
+            return items.find(item => item.id === id)
+        }
     }
 }
 
