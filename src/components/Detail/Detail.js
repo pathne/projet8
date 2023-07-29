@@ -15,7 +15,7 @@ class Animate {
 
     setHeight(el){
         if (el && this.height === 0){
-            this.height = el.getBoundingClientRect().height
+            this.height = el.getBoundingClientRect().height + 20
         }
     }
 
@@ -83,15 +83,26 @@ export default function Detail(props){
         animate.toggle()
     }
 
-    let items
+    let content
     if (typeof props.items === 'string'){
-        items = props.items.split('.').map(s => s+'.')
-        items.pop()
+        content = (
+            <p ref={el => {
+                animate.setHeight(el)
+            }}>
+                {props.items}
+            </p>
+        )
     }
     else{
-        items = props.items
+        const itemElements = props.items.map(text => <li key={Math.random()}>{text}</li>)
+        content = (
+            <ul ref={el => {
+                animate.setHeight(el)
+            }}>
+                {itemElements}
+            </ul>
+        )
     }
-    const itemElements = items.map(text => <li>{text}</li>)
 
     return (
         <div className="detail">
@@ -104,11 +115,7 @@ export default function Detail(props){
             <div className="detail-content" ref={el => {
                 animate.setContainer(el)
             }}>
-                <ul ref={el => {
-                    animate.setHeight(el)
-                }}>
-                    {itemElements}
-                </ul>
+                {content}
             </div>
         </div>
     );

@@ -4,8 +4,8 @@ import Detail from '../Detail/Detail';
 
 export default function Presentation(props){
 
-    const nameSplit = props.host.name.split(' ').map(name => (<span>{name}</span>))
-    nameSplit.splice(1, 0, (<br />));
+    const nameSplit = props.host.name.split(' ').map((name, index) => (<span key={index}>{name}</span>))
+    nameSplit.splice(1, 0, (<br key="br" />));
 
     const tags = props.tags.map(name => (
         <Tag
@@ -16,10 +16,10 @@ export default function Presentation(props){
 
     const stars = []
     for (let i=0; i<props.rating; i++){
-        stars.push(<div className="star-filled"></div>)
+        stars.push(<div key={i} className="star-filled"></div>)
     }
     for (let i=props.rating; i<5; i++){
-        stars.push(<div className="star-empty"></div>)
+        stars.push(<div key={i} className="star-empty"></div>)
     }
 
     return (
