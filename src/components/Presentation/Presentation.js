@@ -4,8 +4,9 @@ import Detail from '../Detail/Detail';
 
 export default function Presentation(props){
 
-    const nameSplit = props.host.name.split(' ').map((name, index) => (<span key={index}>{name}</span>))
-    nameSplit.splice(1, 0, (<br key="br" />));
+    const nameParts = props.host.name.split(' ')
+    const firstname = nameParts[0]
+    const lastname = nameParts.slice(1).join(' ')
 
     const tags = props.tags.map(name => (
         <Tag
@@ -32,7 +33,7 @@ export default function Presentation(props){
                 </div>
                 <div className="who-stars">
                     <div className="who">
-                        <p>{nameSplit}</p>
+                        <p>{firstname}<br/>{lastname}</p>
                         <img src={props.host.picture} width="64" height="64" />
                     </div>
                     <div className="stars">{stars}</div>
