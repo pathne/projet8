@@ -2,67 +2,25 @@
 import './Detail.scss';
 import { useState } from 'react';
 
-class Animate {
-    constructor(animationDuration){
-        this.height = 0
-        this.container = null
-        this.arrow = null
-        this.collapsed = true
-        this.k = 0
-        this.tPrev = 0
-        this.animationDuration = animationDuration * 1000
-    }
-
-    setHeight(el){
-        if (el && this.height === 0){
-            this.height = el.getBoundingClientRect().height + 20
-        }
-    }
-
-    setContainer(el){
-        this.container = el
-    }
-
-    setArrow(el){
-        this.arrow = el
-    }
-
-    toggle(){
-        this.collapsed = !this.collapsed
-        const k = this.collapsed?0:1
-        this.arrow.style.transform = 'rotate('+(k * -180)+'deg)'
-        this.container.style.maxHeight = (k * this.height)+'px'
-    }
-}
-
-
 export default function Detail(props){
 
-    const [animate, setAnimate] = useState(new Animate(0.3))
+    const [state, setState] = useState({
+        arrow: null,
+        container: null,
+        height: 0,
+        collapsed: true
+    })
 
     const toggleCollapse = (e)=>{
-        animate.toggle()
-    }
-
-    let content
-    if (typeof props.items === 'string'){
-        content = (
-            <p ref={el => {
-                animate.setHeight(el)
-            }}>
-                {props.items}
-            </p>
-        )
-    }
-    else{
-        const itemElements = props.items.map(text => <li key={Math.random()}>{text}</li>)
-        content = (
-            <ul ref={el => {
-                animate.setHeight(el)
-            }}>
-                {itemElements}
-            </ul>
-        )
+        state.collapsed = !state.collapsed
+        if (state.collapsed){
+            state.arrow.style.transform = 'rotate(0deg)'
+            state.container.style.maxHeight = '0px'
+        }
+        else{
+            state.arrow.style.transform = 'rotate(-180deg)'
+            state.container.style.maxHeight = (state.height + 20) + 'px'
+        }
     }
 
     return (
@@ -70,13 +28,19 @@ export default function Detail(props){
             <div className="detail-title" onClick={toggleCollapse}>
                 <h3>{props.title}</h3>
                 <div className='arrow-up' ref={el => {
-                    animate.setArrow(el)
+                    state.arrow = el
                 }}></div>
             </div>
             <div className="detail-content" ref={el => {
-                animate.setContainer(el)
+                if (el){
+                    state.container = el
+                    state.height = el.getBoundingClientRect().height
+                    el.style.maxHeight = '0px'
+                }
             }}>
-                {content}
+                <div>
+                    {props.children}
+                </div>
             </div>
         </div>
     );

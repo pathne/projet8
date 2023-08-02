@@ -23,6 +23,8 @@ export default function Presentation(props){
         stars.push(<div key={i} className="star-empty"></div>)
     }
 
+    const equipements = props.equipments.map(text => (<li key={Math.random()}>{text}</li>));
+
     return (
         <section className="presentation">
             <div className="info">
@@ -41,16 +43,14 @@ export default function Presentation(props){
             </div>
             <div className="details">
                 <div className="detail-slot">
-                    <Detail
-                        title="Description"
-                        items={props.description}
-                    />
+                    <Detail title="Description">
+                        <p>{props.description}</p>
+                    </Detail>
                 </div>
                 <div className="detail-slot">
-                    <Detail
-                        title="Équipements"
-                        items={props.equipments}
-                    />
+                    <Detail title="Équipements">
+                        <ul>{equipements}</ul>
+                    </Detail>
                 </div>
             </div>
         </section>
