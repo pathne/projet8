@@ -16,12 +16,20 @@ export default function Carrousel(props){
         setIndex((index + 1) % pictures.length)
     }
 
-    return (
-        <section className="carrousel">
-            <img src={props.pictures[index]} alt="image" />
+    const navigation = pictures.length > 1?(
+        <>
             <div className="arrow-left" onClick={goLeft}></div>
             <div className="arrow-right" onClick={goRight}></div>
             <div className="index-count">{(index + 1)+'/'+pictures.length}</div>
+        </>
+    ):(
+        <></>
+    )
+
+    return (
+        <section className="carrousel">
+            <img src={props.pictures[index]} alt="image" />
+            {navigation}
         </section>
     );
 }

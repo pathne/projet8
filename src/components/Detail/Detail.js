@@ -29,48 +29,9 @@ class Animate {
 
     toggle(){
         this.collapsed = !this.collapsed
-        this.animateStart()
-    }
-
-    animateStart(){
-        this.tPrev = Date.now()
-        this.animate()
-    }
-
-    animate(){
-        const t = Date.now()
-        const dk = (t - this.tPrev) / this.animationDuration
-        this.tPrev = t
-        let needMore = true
-        if (this.collapsed){
-            this.k -= dk
-            if (this.k <= 0){
-                this.k = 0
-                needMore = false
-            }
-        }
-        else{
-            this.k += dk
-            if (this.k >= 1){
-                this.k = 1
-                needMore = false
-            }
-        }
-        this.updateProperties(this.k)
-        if (needMore){
-            requestAnimationFrame(this.animate.bind(this))
-        }
-    }
-
-    updateProperties(k){
-        k = this.easeInOut(k)
+        const k = this.collapsed?0:1
         this.arrow.style.transform = 'rotate('+(k * -180)+'deg)'
         this.container.style.maxHeight = (k * this.height)+'px'
-    }
-
-    easeInOut(k){
-        const sqt = k * k;
-        return sqt / (2 * (sqt - k) + 1);
     }
 }
 

@@ -5,18 +5,17 @@
     display: flex;
     justify-content: space-between;
     margin: 45px 0px 50px 0px;
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 65px;
+    }
 }
 
 .logo {
     width: 210px;
     height: 68px;
-}
-
-.header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 65px;
 }
 
 .link {
