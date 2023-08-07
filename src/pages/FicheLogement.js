@@ -18,9 +18,15 @@ export default function FicheLogement() {
     const {id} = useParams()
 
     useEffect(()=>{
+
+        document.title = 'Kasa - Fiche Logement'
+
         data.renting.get(id).then(renting => {
             setPending(false);
             setRenting(renting)
+            if (renting){
+                document.title = 'Kasa - Fiche Logement - ' + renting.title
+            }
         })
     })
 
