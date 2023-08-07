@@ -12,15 +12,21 @@ export default function Detail(props){
     })
 
     const toggleCollapse = (e)=>{
-        state.collapsed = !state.collapsed
-        if (state.collapsed){
-            state.arrow.style.transform = 'rotate(0deg)'
-            state.container.style.maxHeight = '0px'
+        let newState = {
+            arrow: state.arrow,
+            container: state.container,
+            height: state.height,
+            collapsed: !state.collapsed
+        };
+        if (newState.collapsed){
+            newState.arrow.style.transform = 'rotate(0deg)'
+            newState.container.style.maxHeight = '0px'
         }
         else{
-            state.arrow.style.transform = 'rotate(-180deg)'
-            state.container.style.maxHeight = (state.height + 20) + 'px'
+            newState.arrow.style.transform = 'rotate(-180deg)'
+            newState.container.style.maxHeight = (newState.height + 20) + 'px'
         }
+        setState(newState)
     }
 
     return (
@@ -34,8 +40,10 @@ export default function Detail(props){
             <div className="detail-content" ref={el => {
                 if (el){
                     state.container = el
-                    state.height = el.getBoundingClientRect().height
-                    el.style.maxHeight = '0px'
+                    if (state.height === 0){
+                        state.height = el.getBoundingClientRect().height
+                        el.style.maxHeight = '0px'
+                    }
                 }
             }}>
                 <div>
